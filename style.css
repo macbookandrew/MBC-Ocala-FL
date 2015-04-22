@@ -915,22 +915,22 @@ dl.gallery-item {
 
 .home-button#ministries,
 .home-button#ministries h2 {
-	background-position-x: 0;
+	background-position: 0 0;
 }
 
 .home-button#faith-bible-institute,
 .home-button#faith-bible-institute h2 {
-	background-position-x: -250px;
+	background-position: -250px 0;
 }
 
 .home-button#what-to-expect,
 .home-button#what-to-expect h2 {
-	background-position-x: -500px;
+	background-position: -500px 0;
 }
 
 .home-button#addictions,
 .home-button#addictions h2 {
-	background-position-x: -750px;
+	background-position: -750px 0;
 }
 
 /* @end */
