@@ -47,7 +47,10 @@ if ($query) {
 </div>
 
 <div id="flashcontent" style="margin: 10px 0;"></div>
- 
+
+<?php if (strpos($sermonVideoFile, 'mp4')) {?>
+<video src="<?php echo $sermonVideoPath.$sermonVideoFile; ?>" controls preload="auto" autoplay>
+<?php } else { ?>
 <script type='text/javascript'>
   var so = new SWFObject('video-player.swf','mpl','640','384','9');
   so.addParam('allowfullscreen','true');
@@ -57,7 +60,7 @@ if ($query) {
   so.addVariable('file','<?php echo $sermonVideoPath.$sermonVideoFile; ?>');
   so.write('flashcontent');
 </script>
-
+<?php } ?>
 
 
 </body>
