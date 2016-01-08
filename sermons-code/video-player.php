@@ -33,35 +33,45 @@ if ($query) {
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	<title><?php echo $pageTitle . $siteTitle; ?></title>
 	<link type="text/css" href="/wp-content/themes/MBC-Ocala-FL/style.css" rel="stylesheet" />
-	<script type="text/javascript" src="../sermons-code/swfobject1-5/swfobject.js"></script>
+
+	<style>
+        body {
+            color: #ffffff;
+            background: none;
+            background-color: #5578B0;
+            text-align: center
+        }
+        .title {
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .date {
+            font-size: 10px;
+        }
+        .mejs-container {
+            display: block;
+            margin: 1em auto 0;
+        }
+    </style>
+
+	<script type="text/javascript" src="/wp-includes/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/wp-includes/js/mediaelement/mediaelement-and-player.min.js"></script>
+	<link href="/wp-includes/js/mediaelement/mediaelementplayer.min.css" rel="stylesheet" />
+	<script>
+        // using jQuery
+        jQuery('video,audio').mediaelementplayer(/* Options */);
+    </script>
+
 </head>
-<body style="color: #ffffff; background: none; background-color: #5578B0; text-align: center;">
+<body>
 
-<img src="../images/audio-player-logo.jpg" alt="Memorial Baptist Church" title="Memorial Baptist Church" />
+    <img src="../images/audio-player-logo.jpg" alt="Memorial Baptist Church" title="Memorial Baptist Church" />
 
-<div style="font-size: 12px; font-weight: bold;">
-	<?php echo $sermonTitle; ?> - <?php echo $sermonSpeaker; ?>
-</div>
-<div style="font-size: 10px;">
-	<?php echo $sermonServiceTime; ?> - <?php echo date("F j, Y", strtotime($sermonDate)); ?>
-</div>
+    <p class="title"><?php echo $sermonTitle; ?> - <?php echo $sermonSpeaker; ?></p>
 
-<div id="flashcontent" style="margin: 10px 0;"></div>
+    <p class="date"><?php echo $sermonServiceTime; ?> - <?php echo date("F j, Y", strtotime($sermonDate)); ?></p>
 
-<?php if (strpos($sermonVideoFile, 'mp4')) {?>
-<video src="<?php echo $sermonVideoPath.$sermonVideoFile; ?>" controls preload="auto" autoplay>
-<?php } else { ?>
-<script type='text/javascript'>
-  var so = new SWFObject('video-player.swf','mpl','640','384','9');
-  so.addParam('allowfullscreen','true');
-  so.addParam('allowscriptaccess','always');
-  so.addParam('wmode','opaque');
-  so.addVariable('autostart','true');
-  so.addVariable('file','<?php echo $sermonVideoPath.$sermonVideoFile; ?>');
-  so.write('flashcontent');
-</script>
-<?php } ?>
-
+    <video src="<?php echo $sermonVideoPath.$sermonVideoFile; ?>" autoplay controls></video>
 
 </body>
 </html>
